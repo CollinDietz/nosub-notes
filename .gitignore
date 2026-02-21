@@ -22,3 +22,5 @@ fastlane/screenshots
 # VSCode (optional)
 .vscode/*
 !.vscode/settings.json
+
+buildServer.json
