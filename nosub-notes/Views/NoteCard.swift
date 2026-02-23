@@ -36,7 +36,10 @@ struct NoteCard: View {
 
     var body: some View {
         VStack {
-            if let data = note.drawingData,
+            // Try to get thumbnail from first page, fallback to legacy drawingData
+            let thumbnailData = note.pages.first?.drawingData ?? note.drawingData
+
+            if let data = thumbnailData,
                let image = drawingThumbnail(from: data) {
                 Image(uiImage: image)
                     .resizable()

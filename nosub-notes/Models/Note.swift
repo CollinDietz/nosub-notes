@@ -15,12 +15,18 @@ class Note {
     var title: String
     var createdAt: Date
     var updatedAt: Date
-    var drawingData: Data?
-    
+    var drawingData: Data? // Keep for backward compatibility
+    var pages: [NotePage]
+
     init(title: String) {
         self.id = UUID()
         self.title = title
         self.createdAt = Date()
         self.updatedAt = Date()
+        self.pages = []
+
+        // Create first page by default
+        let firstPage = NotePage(pageNumber: 0)
+        self.pages.append(firstPage)
     }
 }
